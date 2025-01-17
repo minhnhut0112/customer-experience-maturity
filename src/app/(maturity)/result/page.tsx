@@ -28,8 +28,10 @@ export async function generateMetadata({
   const result = results?.find(
     (r) => Number(score) >= r.range[0] && Number(score) < r.range[1]
   );
-  const url = `http://localhost:3000/result?score=${score}`;
-  const imageUrl = `/level/lv${result!.level}.PNG`;
+  const url = `https://customer-experience-maturity.vercel.app/result?score=${score}`;
+  const imageUrl = `https://customer-experience-maturity.vercel.app/level/lv${
+    result!.level
+  }.PNG`;
   return {
     title: `VOICE OF THE CUSTOMER - CẤP ĐỘ ${result!.level} | Filum.ai`,
     description:
@@ -233,8 +235,7 @@ const Result = async ({
     (r) => Number(score) >= r.range[0] && Number(score) < r.range[1]
   );
 
-  // const url = `http://localhost:3000/result?score=${score}`;
-  const url = "https://google.com";
+  const url = `https://customer-experience-maturity.vercel.app/result?score=${score}`;
 
   if (!result) {
     return <div>Không có kết quả phù hợp với điểm số của bạn.</div>;
